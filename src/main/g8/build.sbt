@@ -1,6 +1,10 @@
 import scala.language.postfixOps
 
 name := """$name$"""
+organization := """$organization$"""
+
+mainClass in (Compile, run) := Some("$mainClass$")
+mainClass in (Compile, packageBin) := Some("$mainClass$")
 
 version := "0.1"
 
@@ -8,58 +12,17 @@ scalaVersion := "2.11.8"
 scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation", "-explaintypes", "-encoding", "UTF8",
     "-Xlint", "-Xfatal-warnings")
 
-val akkaVersion = "$akkaVersion$"
-val akkaHttpVersion = "$akkaHttpVersion$"
-val slickVersion = "$slickVersion$"
-val slickPgVersion = "$slickPgVersion$"
-val logBackVersion = "$logBackVersion$"
-val playJsonVersion = "$playJsonVersion$"
-val guiceVersion = "$guiceVersion$"
 
 libraryDependencies ++=  Seq(
-  // Akka
-  "com.typesafe.akka" %% "akka-actor" % akkaVersion,
-  "com.typesafe.akka" %% "akka-stream" % akkaVersion,
-
-  "com.typesafe.akka" %% "akka-http-core" % akkaHttpVersion,
-  "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
-
-  // JSON
-  "com.typesafe.play" % "play-json_2.11" % playJsonVersion,
-
-  // DB: drivers + Slick core
-  "com.typesafe.slick" % "slick_2.11" % slickVersion,
-  "com.typesafe.slick" % "slick-hikaricp_2.11" % slickVersion,
-  "org.postgresql" % "postgresql" % "9.4.1208.jre7",
-
-  // DB: Slick extensions
-  "com.github.tminglei" % "slick-pg_2.11" % slickPgVersion,
-  "com.github.tminglei" % "slick-pg_play-json_2.11" % slickPgVersion,
-  "com.github.tminglei" % "slick-pg_joda-time_2.11" % slickPgVersion,
-
-  // Logging
-  "ch.qos.logback" % "logback-classic" % logBackVersion,
-  "com.typesafe.scala-logging" % "scala-logging_2.11" % "3.5.0",
-
-  // DI
-  "net.codingwell" % "scala-guice_2.11" % guiceVersion,
-
-  // Time and Date
-  "org.joda" % "joda-convert" % "1.8.1",
-
-  // Config
-  "com.github.racc" % "typesafeconfig-guice" % "0.0.3",
-
-  // Local libs
-  "com.mysterria.lioqu" %% "lioqu-core" % "1.0-SNAPSHOT"
+  "com.mysterria.lioqu" %% "lioqu-core" % "0.1-SNAPSHOT"
 )
 
 enablePlugins(RpmPlugin)
 enablePlugins(JavaServerAppPackaging)
 enablePlugins(LauncherJarPlugin)
 rpmRelease := "1"
-rpmVendor := "$company$"
-rpmUrl := Some("$companyUrl$")
+rpmVendor := "$organization$"
+rpmUrl := Some("$organizationUrl$")
 rpmLicense := Some("$license$")
 sources in (Compile, doc) := Seq.empty
 publishArtifact in (Compile, packageDoc) := false

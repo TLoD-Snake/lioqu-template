@@ -10,7 +10,9 @@
 	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<prudent>true</prudent>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-		<fileNamePattern>log-%d{yyyy-MM-dd}.log</fileNamePattern>
+			<fileNamePattern>logs/log-%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>60</maxHistory>
+			<totalSizeCap>30GB</totalSizeCap>
 		</rollingPolicy>
 		<append>true</append>
 		<encoder>
@@ -18,7 +20,7 @@
 		</encoder>
 	</appender>
 
-	<logger name="com.mysterria.lioqu" level="DEBUG"/>
+	<logger name="$package$" level="DEBUG"/>
 
 	<root level="info">
 		<appender-ref ref="CONSOLE" />
