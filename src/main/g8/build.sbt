@@ -9,12 +9,12 @@ scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation", "-explaintypes",
     "-Xlint", "-Xfatal-warnings")
 
 val akkaVersion = "$akkaVersion$"
-val akkaHttpVersion = "10.0.5"
-val slickVersion = "3.2.0"
-val slickPgVersion = "0.15.0-RC"
-val logBackVersion = "1.2.3"
-val playJsonVersion = "2.6.0-M7"
-val guiceVersion = "4.1.0"
+val akkaHttpVersion = "$akkaHttpVersion$"
+val slickVersion = "$slickVersion$"
+val slickPgVersion = "$slickPgVersion$"
+val logBackVersion = "$logBackVersion$"
+val playJsonVersion = "$playJsonVersion$"
+val guiceVersion = "$guiceVersion$"
 
 libraryDependencies ++=  Seq(
   // Akka
