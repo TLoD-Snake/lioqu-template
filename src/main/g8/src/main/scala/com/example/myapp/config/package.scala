@@ -1,4 +1,4 @@
-package com.example.lioqu
+package com.example.myapp
 
 package object config {
   final val Prefix = "lioqu."

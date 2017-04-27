@@ -1,4 +1,4 @@
-package com.example.lioqu.tools
+package com.example.myapp.tools
 
 import javax.swing.filechooser.FileNameExtensionFilter
 
