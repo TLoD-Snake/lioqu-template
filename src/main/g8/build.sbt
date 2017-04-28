@@ -12,6 +12,10 @@ scalaVersion := "2.11.8"
 scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation", "-explaintypes", "-encoding", "UTF8",
     "-Xlint", "-Xfatal-warnings")
 
+resolvers ++= Seq(
+  "mysterria.com artifactory - snapshot" at "http://artifactory.mysterria.com/artifactory/libs-snapshot-local",
+  "mysterria.com artifactory - release" at "http://artifactory.mysterria.com/artifactory/libs-release-local"
+)
 
 libraryDependencies ++=  Seq(
   "com.mysterria.lioqu" %% "lioqu-core" % "0.1-SNAPSHOT"
